@@ -19,10 +19,10 @@ public class kurirCrud {
     public String VAR_ALAMAT = null;
     public String VAR_JENISKELAMIN = null;
     public boolean validasi = false;
+    private String jeniskelamin;
 
     // ===================== SIMPAN =====================
-    public void simpanKurir(String idkurir, String namakurir, String hp,
-                            String wilayah, String alamat, String jeniskelamin) {
+    public void simpanKurir(String idkurir, String namakurir, String hp, String wilayah, String alamat) {
 
         try (Connection conn = koneksi.getKoneksi()) {
             String sql = "INSERT INTO kurir (idkurir, namakurir, hp, wilayah, alamat, jeniskelamin) VALUES (?, ?, ?, ?, ?, ?)";
@@ -62,8 +62,7 @@ public class kurirCrud {
     }
 
     // ===================== UBAH =====================
-    public void ubahKurir(String idkurir, String namakurir, String hp,
-                          String wilayah, String alamat, String jeniskelamin) {
+    public void ubahKurir(String idkurir, String namakurir, String hp, String wilayah, String alamat) {
 
         String sql = "UPDATE kurir SET namakurir = ?, hp = ?, wilayah = ?, alamat = ?, jeniskelamin = ? WHERE idkurir = ?";
 

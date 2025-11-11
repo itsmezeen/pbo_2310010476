@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.SQLException;
-import java.sql.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -16,12 +15,12 @@ public class pegawaiCrud {
     public String VAR_IDPEGAWAI = null;
     public String VAR_NAMAPEGAWAI = null;
     public String VAR_ALAMAT = null;
-    public Date VAR_TTL = null;
+    public String VAR_TTL = null;
     public String VAR_HP = null;
     public boolean validasi = false;
 
     // ===================== SIMPAN =====================
-    public void simpanPegawai(String idpegawai, String namapegawai, String alamat, Date ttl, String hp) {
+    public void simpanPegawai(String idpegawai, String namapegawai, String alamat, String ttl, String hp) {
         try (Connection conn = koneksi.getKoneksi()) {
             String sql = "INSERT INTO pegawai (idpegawai, namapegawai, alamat, ttl, hp) VALUES (?, ?, ?, ?, ?)";
             String cekPrimary = "SELECT * FROM pegawai WHERE idpegawai = ?";
@@ -34,7 +33,7 @@ public class pegawaiCrud {
                     JOptionPane.showMessageDialog(null, "ID Pegawai sudah terdaftar!");
                     this.VAR_NAMAPEGAWAI = data.getString("namapegawai");
                     this.VAR_ALAMAT = data.getString("alamat");
-                    this.VAR_TTL = data.getDate("ttl");
+                    this.VAR_TTL = data.getString("ttl");
                     this.VAR_HP = data.getString("hp");
                     this.validasi = true;
                 } else {
@@ -44,7 +43,7 @@ public class pegawaiCrud {
                         perintah.setString(1, idpegawai);
                         perintah.setString(2, namapegawai);
                         perintah.setString(3, alamat);
-                        perintah.setDate(4, ttl);
+                        perintah.setString(4, ttl);
                         perintah.setString(5, hp);
                         perintah.executeUpdate();
                         JOptionPane.showMessageDialog(null, "Data pegawai berhasil disimpan!");
@@ -59,13 +58,13 @@ public class pegawaiCrud {
     }
 
     // ===================== UBAH =====================
-    public void ubahPegawai(String idpegawai, String namapegawai, String alamat, Date ttl, String hp) {
+    public void ubahPegawai(String idpegawai, String namapegawai, String alamat, String ttl, String hp) {
         String sql = "UPDATE pegawai SET namapegawai = ?, alamat = ?, ttl = ?, hp = ? WHERE idpegawai = ?";
 
         try (Connection conn = koneksi.getKoneksi(); PreparedStatement perintah = conn.prepareStatement(sql)) {
             perintah.setString(1, namapegawai);
             perintah.setString(2, alamat);
-            perintah.setDate(3, ttl);
+            perintah.setString(3, ttl);
             perintah.setString(4, hp);
             perintah.setString(5, idpegawai);
 
@@ -109,7 +108,7 @@ public class pegawaiCrud {
         model.addColumn("ID Pegawai");
         model.addColumn("Nama Pegawai");
         model.addColumn("Alamat");
-        model.addColumn("Tanggal Lahir");
+        model.addColumn("Tempat/Tanggal Lahir");
         model.addColumn("No. HP");
 
         try (Connection conn = koneksi.getKoneksi();
@@ -121,7 +120,7 @@ public class pegawaiCrud {
                     data.getString("idpegawai"),
                     data.getString("namapegawai"),
                     data.getString("alamat"),
-                    data.getDate("ttl"),
+                    data.getString("ttl"),
                     data.getString("hp")
                 });
             }

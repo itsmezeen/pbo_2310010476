@@ -8,8 +8,8 @@ import javax.swing.JOptionPane;
 
 public class koneksi {
     
-    private static final String NAMA_DB = "pbo2_2310010476";
-    private static final String URL = "jdbc:mysql://localhost:3306/" + NAMA_DB;
+    private static final String NAMA_DB = "pbo_2310010476";
+    private static final String URL = "jdbc:mysql://localhost/" + NAMA_DB;
     private static final String USERNAME = "root";
     private static final String PASSWORD = "";
     

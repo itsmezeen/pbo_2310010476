@@ -15,6 +15,7 @@ public class menu extends javax.swing.JFrame {
      */
     public menu() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -26,21 +27,96 @@ public class menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        btnBarang = new javax.swing.JButton();
+        btnKurir = new javax.swing.JButton();
+        btnPegawai = new javax.swing.JButton();
+        btnPelanggan = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Pilihan Menu Tabel");
+
+        btnBarang.setText("Barang");
+        btnBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBarangActionPerformed(evt);
+            }
+        });
+
+        btnKurir.setText("Kurir");
+        btnKurir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKurirActionPerformed(evt);
+            }
+        });
+
+        btnPegawai.setText("Pegawai");
+        btnPegawai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPegawaiActionPerformed(evt);
+            }
+        });
+
+        btnPelanggan.setText("Pelanggan");
+        btnPelanggan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPelangganActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(btnBarang)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnKurir)
+                        .addGap(12, 12, 12)
+                        .addComponent(btnPegawai)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnPelanggan)))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(jLabel1)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBarang)
+                    .addComponent(btnKurir)
+                    .addComponent(btnPegawai)
+                    .addComponent(btnPelanggan))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBarangActionPerformed
+    new barang().setVisible(true);    // TODO add your handling code here:
+    }//GEN-LAST:event_btnBarangActionPerformed
+
+    private void btnKurirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKurirActionPerformed
+    new kurir().setVisible(true);    // TODO add your handling code here:
+    }//GEN-LAST:event_btnKurirActionPerformed
+
+    private void btnPegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPegawaiActionPerformed
+     new pegawai().setVisible(true);    // TODO add your handling code here:
+    }//GEN-LAST:event_btnPegawaiActionPerformed
+
+    private void btnPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPelangganActionPerformed
+    new pelanggan().setVisible(true);    // TODO add your handling code here:
+    }//GEN-LAST:event_btnPelangganActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +154,10 @@ public class menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBarang;
+    private javax.swing.JButton btnKurir;
+    private javax.swing.JButton btnPegawai;
+    private javax.swing.JButton btnPelanggan;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
